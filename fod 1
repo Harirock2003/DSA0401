@@ -1,0 +1,39 @@
+import numpy as np
+import pandas as pd
+data=pd.read_csv("C:/Users/Hari Prasad/Desktop/Book1.csv")
+print(data)
+data1=np.array(data)
+print(data1)
+
+maths=np.array(data)[:,1]
+print(maths)
+len1=len(maths)
+avg=sum(maths)/len1
+print(avg)
+
+science=np.array(data)[:,2]
+print(science)
+len1=len(science)
+avg1=sum(science)/len1
+print(avg1)
+
+history=np.array(data)[:,3]
+print(history)
+len1=len(history)
+avg2=sum(history)/len1
+print(avg2)
+
+english=np.array(data)[:,4]
+print(english)
+len1=len(english)
+avg3=sum(english)/len1
+print(avg3)
+
+if(avg>avg1 and avg>avg2 and avg>avg3):
+    print("maths has high avg")
+elif(avg1>avg and avg1>avg2 and avg1>avg3):
+    print("engish has high avg")
+elif(avg2>avg and avg2>avg1 and avg2>avg3):
+    print("science has high avg")
+else:
+    print("history has high avg")
