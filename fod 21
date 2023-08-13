@@ -1,0 +1,29 @@
+import numpy as np
+import pandas as pd
+from scipy.stats import t
+
+data = pd.read_csv("C:/Users/Hari Prasad/Desktop/list_of_rare_earth_element-1363j.csv")
+Symbol= data['Symbol'].values
+
+sample_size=int(input("Enter the sample size: "))
+confidence_level=float(input("Enter the confidence level (between 0 and 1): "))
+
+desired_precision=float(input("Enter the desired level of precision: "))
+sample_mean=np.mean(Symbol)
+sample_std=np.std(Symbol, ddof=1)
+
+degrees_of_freedom=sample_size - 1
+t_score = t.ppf(1-(1-confidence_level)/2,degrees_of_freedom)
+
+margin_of_error = t_score*sample_std/np.sqrt(sample_size)
+
+required_sample_size = ((t_score*sample_std)/desired_precision)**2
+
+confidence_interval = (sample_mean - margin_of_error, sample_mean+margin_of_error)
+
+print(f"Sample mean: {sample_mean:.4f}")
+print(f"Sample standard deviation: {sample_std:.4f}")
+print(f"Confidence interval ({confidence_level * 100:.2f}%): {confidence_interval}")
+print(f"Margin of error: {margin_of_error:.4f}")
+print(f"Required sample size for desired precision: {int(np.ceil(required_sample_size))}")
+    
