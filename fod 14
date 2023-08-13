@@ -1,0 +1,5 @@
+import pandas as pd
+data=pd.read_csv("C:/Users/Hari Prasad/Desktop/custmor dataset.csv")
+print(data)
+data2=data['Review Title'].value_counts()
+print(data2)
