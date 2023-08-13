@@ -1,0 +1,8 @@
+import numpy as np
+import pandas as pd
+data=pd.read_csv("C:/Users/Hari Prasad/Desktop/data2.csv")
+print(data)
+data1=np.array(data)[:,0]
+print(data1)
+avg1=sum(data1)/len(data1)
+print(avg1)
