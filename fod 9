@@ -1,0 +1,7 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+data=pd.read_csv("C:/Users/Hari Prasad/Desktop/mobile_prices .csv")
+print(data)
+data1=data[data['battery_power']>1000].head()
+plt.plot(data1,'o:r',marker="*",ms=2.0,color='hotpink')
+plt.show()
